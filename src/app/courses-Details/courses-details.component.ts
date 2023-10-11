@@ -15,8 +15,11 @@ import { RouterModule } from '@angular/router';
         alt="cover-photo of {{ courseDetails.name }}"
       />
       <h2 class="course-heading">{{ courseDetails.name }}</h2>
-      <p class="course-details">{{ courseDetails.duration }}</p>
-      <p class="course-details">Annual Tuition: E{{ courseDetails.price }}</p>
+      <p class="course-details">
+        {{ courseDetails.duration }}<br />Annual Tuition: E{{
+          courseDetails.price
+        }}
+      </p>
       <a [routerLink]="['/details', courseDetails.id]">Learn more</a>
     </section>
   `,

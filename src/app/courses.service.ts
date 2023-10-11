@@ -60,6 +60,8 @@ export class CoursesService {
   }
 
   submitApplication(firstName: string, lastName: string, email: string) {
-    console.log('Application recieved');
+    console.log(
+      `user ${firstName}, ${lastName}, ${email} has been saved to the database`,
+    );
   }
 }

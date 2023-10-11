@@ -24,12 +24,28 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
           }}
         </p>
       </section>
+
       <section class="course-details-heading">
         <h2 class="course-sub-heading">About this Course</h2>
         <ul>
           <li>available: {{ courseDetails?.isAvailable }}</li>
           <li>Free trial: {{ courseDetails?.freeTrial }}</li>
         </ul>
+      </section>
+
+      <section class="listing-apply">
+        <h2 class="course-sub-heading">Apply now to live here</h2>
+        <form [formGroup]="applyForm" (submit)="submitApplication()">
+          <label for="first-name">First Name</label>
+          <input id="first-name" type="text" formControlName="firstName" />
+
+          <label for="last-name">Last Name</label>
+          <input id="last-name" type="text" formControlName="lastName" />
+
+          <label for="email">Email</label>
+          <input id="email" type="email" formControlName="email" />
+          <button type="submit" class="primary">Apply now</button>
+        </form>
       </section>
     </article>
   `,
@@ -41,9 +57,9 @@ export class DetailsComponent {
   courseDetails: CourseDetails | undefined;
   courseDetailsId = -1;
 
-  // In Angular, FormGroup and FormControl are types that enable you to build forms.
-  // The FormControl type can provide a default value and shape the form data.
-  // In this example firstName is a string and the default value is empty string.
+  /*In Angular, FormGroup and FormControl are types that enable you to build forms.
+   **The FormControl type can provide a default value and shape the form data.
+   **In this example firstName is a string and the default value is empty string.*/
   applyForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
